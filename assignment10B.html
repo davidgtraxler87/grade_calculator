@@ -1,0 +1,96 @@
+<!-- 
+David Traxler 
+IS/CS 3023
+Fall 2018
+-->
+<script language = "javascript">
+
+    function computeGrade()
+    {
+        var exam1;
+        var exam2;
+        var exam3;
+        var exam4;
+        var average;
+
+        //is not a number
+        if (isNaN (exam1 = parseFloat(document.form1.exam1.value)))
+        {
+            exam1 = 0;
+            alert("Please enter a value for Exam #1.")
+        }
+        if (isNaN (exam2 = parseFloat(document.form1.exam2.value)))
+        {
+            exam2 = 0;
+            alert("Please enter a value for Exam #2.")
+        }
+        if (isNaN (exam3 = parseFloat(document.form1.exam3.value)))
+        {
+            exam3 = 0;
+            alert("Please enter a value for Exam #3.")
+        }
+        if (isNaN (exam4 = parseFloat(document.form1.exam4.value)))
+        {
+            exam4 = 0;
+            alert("Please enter a value for Exam #4.")
+        }
+        average = (exam1 + exam2 + exam3 + exam4) / 4;
+        document.form1.average.value = average;
+
+        //compute status
+        if (average >= 70)
+            document.form1.status.value = "Pass";
+        else
+            document.form1.status.value = "Fail";
+
+        //compute grade
+        if (average >= 90)
+            document.form1.grade.value = "A"
+        else if (average >= 80)
+            document.form1.grade.value = "B"
+        else if (average >= 70)
+            document.form1.grade.value = "C"
+        else if (average >= 60)
+            document.form1.grade.value = "D"
+        else
+            document.form1.grade.value = "F"
+
+    }
+
+    function cmdClear()
+    {
+        document.form1.exam1.value = "";
+        document.form1.exam2.value = "";
+        document.form1.exam3.value = "";
+        document.form1.exam4.value = "";
+        document.form1.average.value = "";
+    }
+
+
+</script>
+
+
+<h2> Simple Calculator </h2>
+<!-- HTML Comment -->
+<form name = "form1" >
+Exam 1: <input type = "text" name = "exam1" size = "5" value = "">
+<p>
+Exam 2: <input type = "text" name = "exam2" size = "5" value = "">
+<p>
+Exam 3: <input type = "text" name = "exam3" size = "5" value = "">
+<p>
+Exam 4: <input type = "text" name = "exam4" size = "5" value = "">
+<p>
+<p>
+<input type = "button" value = "Compute Grade" onclick = "computeGrade()">
+<p>
+Average: <input type = "text" name = "average" size = "5" value = "">
+<p>
+Status: <input type = "text" name = "status" size = "5" value = "">
+<p>
+Grade: <input type = "text" name = "grade" size = "5" value = "">
+<p>
+
+<input type = "button" value = "Clear" onclick = "cmdClear()">
+<p>
+</form>
